@@ -1,54 +1,37 @@
-# To learn more about how to use Nix to configure your environment
-# see: https://developers.google.com/idx/guides/customize-idx-env
-{ pkgs, ... }: {
-  # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
-  # Use https://search.nixos.org/packages to find packages
+{ pkgs, ... }:
+
+let
+  # Here we define a specific Python environment.
+  # We use python311 and specify a list of packages to install with it.
+  # This creates a self-contained Python environment managed by Nix.
+  python-with-packages = pkgs.python311.withPackages (ps: with ps; [
+    # Jupyter and its kernel are essential for notebooks.
+    jupyter
+    ipykernel
+
+    # Common libraries for data analysis and machine learning.
+    # You can add or remove packages here as needed.
+    pandas
+    numpy
+    matplotlib
+    scikit-learn
+    seaborn
+  ]);
+in
+{
+  # We use the stable-24.05 channel for reproducible package versions.
+  channel = "stable-24.05";
+
+  # The only package we need to install directly is our custom Python environment.
   packages = [
-    # pkgs.go
-    # pkgs.python311
-    # pkgs.python311Packages.pip
-    # pkgs.nodejs_20
-    # pkgs.nodePackages.nodemon
+    python-with-packages
   ];
-  # Sets environment variables in the workspace
-  env = {};
+
+  # These VS Code extensions provide excellent support for Python and Jupyter.
   idx = {
-    # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
     extensions = [
-      # "vscodevim.vim"
-      "google.gemini-cli-vscode-ide-companion"
+      "ms-python.python"
+      "ms-toolsai.jupyter"
     ];
-    # Enable previews
-    previews = {
-      enable = true;
-      previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
-      };
-    };
-    # Workspace lifecycle hooks
-    workspace = {
-      # Runs when a workspace is first created
-      onCreate = {
-        # Example: install JS dependencies from NPM
-        # npm-install = "npm install";
-        # Open editors for the following files by default, if they exist:
-        default.openFiles = [ ".idx/dev.nix" "README.md" ];
-      };
-      # Runs when the workspace is (re)started
-      onStart = {
-        # Example: start a background task to watch and re-build backend code
-        # watch-backend = "npm run watch-backend";
-      };
-    };
   };
 }

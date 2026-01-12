@@ -22,9 +22,12 @@ in
   # We use the stable-24.05 channel for reproducible package versions.
   channel = "stable-24.05";
 
-  # The only package we need to install directly is our custom Python environment.
+  # We install our custom Python environment, a fast search tool, and bash completion.
   packages = [
     python-with-packages
+    pkgs.ripgrep # A fast search tool used by language servers to improve performance.
+    pkgs.bash-completion # Improves terminal auto-completion.
+    pkgs.pyright # A performant language server for fast autocompletion and code analysis.
   ];
 
   # These VS Code extensions provide excellent support for Python and Jupyter.

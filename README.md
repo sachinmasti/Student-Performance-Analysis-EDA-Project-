@@ -223,7 +223,7 @@ This project demonstrates a **professional EDA workflow** that transforms raw ed
 
 💼 LinkedIn: [Sachin Masti](https://www.linkedin.com/in/sachin-masti-b9780b257/)
 
-🐙 GitHub: [Your GitHub](https://github.com/sachinmasti)
+🐙 GitHub: [GitHub](https://github.com/sachinmasti)
 
 📊 Portfolio: [My Portfolio](https://yourportfolio.com)
 

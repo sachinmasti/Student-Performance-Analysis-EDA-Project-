@@ -220,7 +220,7 @@ This project demonstrates a **professional EDA workflow** that transforms raw ed
 *Aspiring Data Scientist | Python & Analytics Enthusiast*
 
 📧 Email: sachinmasti88@gmail.com  
-💼 LinkedIn: [My LinkedIn](SachinMasti)  
+💼 LinkedIn: [Sachin Masti](https://www.linkedin.com/in/sachin-masti-b9780b257/)
 🐙 GitHub: [My GitHub](https://github.com/sachinmasti)  
 📊 Portfolio: [My Portfolio](https://yourportfolio.com)
 

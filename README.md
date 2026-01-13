@@ -197,9 +197,6 @@ git clone https://github.com/yourusername/student-performance-analysis.git
 # Navigate to project directory
 cd student-performance-analysis
 
-# Install dependencies
-pip install -r requirements.txt
-
 # Launch Jupyter Notebook
 jupyter notebook
 ```
